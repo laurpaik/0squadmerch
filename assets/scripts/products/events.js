@@ -11,34 +11,18 @@ const onGetProducts = function (event) {
     .then(ui.getProductsSuccess)
     .catch(ui.getProductsFailure);
 };
-//
-// const onSignIn = function (event) {
-//   $('.wrongCred').text('');
-//   let data = getFormFields(event.target);
-//   event.preventDefault();
-//   api.signIn(data)
-//     .then(ui.signInSuccess)
-//     .catch(ui.signInFailure);
-// };
-//
-// const onChangePassword = function (event) {
-//   let data = getFormFields(event.target);
-//   event.preventDefault();
-//   api.changePassword(data)
-//     .then(ui.passwordChangeSuccess)
-//     .catch(ui.passwordChangeFailure);
-// };
-//
-// const onSignOut = function (event) {
-//   event.preventDefault();
-//   api.signOut()
-//     .then(ui.signOutSuccess)
-//     .catch(ui.signOutFailure);
-// };
-//
-//
+
+const onShowProduct = function (event) {
+  event.preventDefault();
+  let id = event.target.dataset.id;
+  api.showProduct(id)
+    .then(ui.showProductSuccess)
+    .catch(ui.showProductFailure);
+};
+
 const addHandlers = () => {
   $('#get-products').on('click', onGetProducts);
+  $('.products-container').on('click', ".show-product", onShowProduct);
 };
 
 module.exports = {
