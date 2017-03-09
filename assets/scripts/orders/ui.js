@@ -2,6 +2,7 @@
 
 const hbsCart = require('../templates/myCart.handlebars');
 const cart = require('../cart');
+const hbsStripe = require('../templates/stripe.handlebars');
 
 const isCartEmpty = (data) => {
   if (data.order.items.length === 0) {
@@ -26,9 +27,14 @@ const removeItemSuccess = (data) => {
   return cart;
 };
 
+const checkoutCart = (data) => {
+  const checkout = hbsStripe({ amount: data.order.orderPrice });
+  $('.cart-modal').append(checkout);
+};
 
 module.exports = {
   showOrderSuccess,
   showOrderFailure,
   removeItemSuccess,
+  checkoutCart,
 };

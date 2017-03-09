@@ -30,7 +30,7 @@ const onCreateOrder = function (event) {
   };
   api.createOrder(data)
     .then((data) => {
-      console.log(data);
+      ui.checkoutCart(data);
     })
     .catch(console.error);
 };
