@@ -28,7 +28,7 @@ const updateOrder = function (id, data){
   });
 };
 
-const createOrder = function (data){
+const createOrder = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/orders',
     method: 'POST',

@@ -20,7 +20,7 @@ const isCartEmpty = (data) => {
 };
 
 const showOrderSuccess = (data, total) => {
-  cart.order = data.order;
+  // cart.order = data.order;
   let cartTemplate = hbsCart({ items: cart, total: total });
   $('.cart-modal').html(cartTemplate);
 };
