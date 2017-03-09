@@ -1,6 +1,6 @@
 'use strict';
 const store = require('../store');
-const orderStore = require('../orderStore');
+const cart = require('../cart');
 
 
 const loggedInSuccess = () => {
@@ -68,7 +68,7 @@ const signOutSuccess = () => {
 
 
 	store.user = {};
-  orderStore.order = {};
+  cart.order = {};
 	// remove local storage user copy.
 	window.localStorage.removeItem('user');
 	checkForUser();
