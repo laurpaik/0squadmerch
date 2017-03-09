@@ -76,4 +76,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  onShowOrder,
 };
