@@ -16,10 +16,11 @@
       <td>{{item.price}}</td>
       <td>{{item.quantity}}</td>
       <td>
-        <button class="btn btn-primary item-edit" data-id="{{item.id}}" >Edit</button>
-        <button class="btn btn-danger item-delete" data-id="{{item.id}}">Delete</button>
+        <button class="btn btn-primary item-edit" data-id="{{item._id}}" >Edit</button>
+        <button class="btn btn-danger item-delete" data-id="{{item._id}}">Delete</button>
       </td>
     </tr>
     {{/each}}
   </tbody>
 </table>
+<h5>Total is: {{order.orderPrice}}</h5>

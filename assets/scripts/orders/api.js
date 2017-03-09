@@ -1,6 +1,7 @@
 'use strict';
 
 const config = require('../config');
+const store = require('../store');
 
 const getOrders = function (){
   return $.ajax({
@@ -16,10 +17,19 @@ const showOrder = function (id){
   });
 };
 
+const updateOrder = function (id, data){
+  return $.ajax({
+    url: config.apiOrigin + '/orders/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+    data,
+  });
+};
+
 module.exports = {
   getOrders,
-  showOrder
-  // signIn,
-  // changePassword,
-  // signOut,
+  showOrder,
+  updateOrder,
 };
