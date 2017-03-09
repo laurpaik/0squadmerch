@@ -11,11 +11,12 @@ const getProductsFailure = (data) => {
 };
 
 const showProductSuccess = (data) => {
-  console.log(data);
   $('.name').val(data.product.name);
   $('.price').val(data.product.price);
   $('.description').val(data.product.description);
   $('.img').val(data.product.img);
+  $('.id').val(data.product._id);
+
 };
 
 const showProductFailure = (data) => {

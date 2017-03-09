@@ -52,14 +52,7 @@ const onRemoveItem = function (event) {
   //   console.log("order is", cart);
   // }
   // else {
-  //   let delObj = cart.order.items.find((item) => {
-  //     if(item._id === itemId) {
-  //       return item;
-  //     }
-  //   });
-  //   let delObjInd = cart.order.items.indexOf(delObj);
-  //   cart.order.items.splice(delObjInd, 1);
-  // }
+
   // console.log(cart);
   // api.updateOrder(id, cart)
   //   .then((data) => {
