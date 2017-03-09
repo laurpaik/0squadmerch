@@ -28,7 +28,7 @@ const removeItemSuccess = (data) => {
 };
 
 const checkoutCart = (data) => {
-  const checkout = hbsStripe({ amount: data.order.orderPrice });
+  const checkout = hbsStripe({ amount: data.order.orderPrice * 100 });
   $('.cart-modal').append(checkout);
 };
 
