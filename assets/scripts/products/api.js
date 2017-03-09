@@ -20,7 +20,4 @@ const showProduct = function (id){
 module.exports = {
   getProducts,
   showProduct
-  // signIn,
-  // changePassword,
-  // signOut,
 };

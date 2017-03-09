@@ -52,7 +52,6 @@ const removeFromCart = function (event) {
   let delObjInd = cart.indexOf(delObj);
   cart.splice(delObjInd, 1);
   orderEvents.onShowOrder(event);
-  console.log(cart);
 };
 
 const addHandlers = () => {
