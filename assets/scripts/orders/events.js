@@ -16,8 +16,9 @@ const onGetOrders = function (event) {
 
 const onShowOrder = function (event) {
   event.preventDefault();
+  delete orderStore.order;
   // let id = event.target.dataset.id;
-  let id = "58c098f934704539902fd7f0";
+  let id = "58c16b03d96d962fb8a3d20f";
   api.showOrder(id)
     .then(ui.showOrderSuccess)
     .catch(ui.showOrderFailure);
@@ -29,33 +30,31 @@ const onRemoveItem = function (event) {
   event.preventDefault();
   let itemId = event.target.dataset.id;
   let id = orderStore.order._id;
-  let items = orderStore.order.items;
-  // let updateItems = [];
-  // let data = items.map((item) => {
-  //   console.log(item);
-  //   if (item._id !== itemId) {
-  //     let obj = {
-  //       _id: item._id,
-  //       name: item.name,
-  //       description: item.description,
-  //       price: item.price,
-  //       quantity: item.quantity
-  //     };
-  //     return obj;
-  //   }
-  // });
-  let delObj = items.find((item) => {
-    if(item._id === itemId) {
-      return item;
-    }
-  });
-  let delObjInd = items.indexOf(delObj);
-  items.splice(delObjInd, 1);
+  // let items = orderStore.order.items;
+  if (orderStore.order.items.length === 1) {
+    orderStore.order.items.pop();
+    console.log("order is", orderStore);
+  }
+  else {
+    let delObj = orderStore.order.items.find((item) => {
+      if(item._id === itemId) {
+        return item;
+      }
+    });
+    let delObjInd = orderStore.order.items.indexOf(delObj);
+    orderStore.order.items.splice(delObjInd, 1);
+  }
   console.log(orderStore);
-  console.log(items);
-  orderStore.order.items = items;
   api.updateOrder(id, orderStore)
-    .then(onShowOrder(event))
+    .then((data) => {
+      if (orderStore !== {}){
+        onShowOrder(event);
+      }
+      else {
+        ui.removeItemSuccess(data);
+        console.log("order is", orderStore);
+      }
+    })
     .catch(ui.showOrderFailure);
 };
 

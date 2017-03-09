@@ -12,6 +12,13 @@ const orderStore = require('../orderStore');
 //   console.error(data);
 // };
 
+const isCartEmpty = (data) => {
+  if (data.order.items.length === 0) {
+    return true;
+  }
+  return false;
+};
+
 const showOrderSuccess = (data) => {
   orderStore.order = data.order;
   let cartTemplate = hbsCart({ order: data.order });
@@ -22,10 +29,18 @@ const showOrderFailure = (data) => {
   console.error(data);
 };
 
+const removeItemSuccess = (data) => {
+  if (isCartEmpty(data)) {
+    delete orderStore.order;
+  }
+  return orderStore;
+};
+
 
 module.exports = {
   // getOrdersSuccess,
   // getOrdersFailure,
   showOrderSuccess,
-  showOrderFailure
+  showOrderFailure,
+  removeItemSuccess,
 };
