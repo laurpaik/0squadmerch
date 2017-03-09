@@ -24,12 +24,19 @@ const onShowProduct = function (event) {
 
 const addToCart = function (event){
   event.preventDefault();
-  let id = event.target.dataset.id;
   let i = getFormFields(event.target);
-  console.log('item', i.item);
-  console.log(id);
-  cart.push(i.item);
-  console.log('cart', cart);
+    let currentProduct = cart.find(function(item) {
+      if(item._id === i.item._id) {
+        return item;
+      }
+    });
+    if (currentProduct !== undefined) {
+      let currProdIndex = cart.indexOf(currentProduct);
+      cart[currProdIndex].quantity += parseInt(i.item.quantity);
+    } else {
+      i.item.quantity = parseInt(i.item.quantity);
+      cart.push(i.item);
+    }
 };
 
 const addHandlers = () => {
