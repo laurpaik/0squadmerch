@@ -1,6 +1,7 @@
 {{#each products as |product|}}
 <div>
   <ul>
+    <li><img src="{{product.img}}" alt="picture"></li>
     <li>{{product.name}}</li>
     <li><button class="show-product" data-id={{product._id}}>Show One</button></li>
   </ul>
