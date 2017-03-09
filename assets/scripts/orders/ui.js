@@ -3,15 +3,6 @@
 const hbsCart = require('../templates/myCart.handlebars');
 const cart = require('../cart');
 
-// const getOrdersSuccess = (data) => {
-//   let productsTemplate = hbsCart({ products: data.orders });
-//   $('.products-container').append(productsTemplate);
-// };
-//
-// const getOrdersFailure = (data) => {
-//   console.error(data);
-// };
-
 const isCartEmpty = (data) => {
   if (data.order.items.length === 0) {
     return true;
@@ -20,7 +11,6 @@ const isCartEmpty = (data) => {
 };
 
 const showOrderSuccess = (data, total) => {
-  // cart.order = data.order;
   let cartTemplate = hbsCart({ items: cart, total: total });
   $('.cart-modal').html(cartTemplate);
 };
@@ -38,8 +28,6 @@ const removeItemSuccess = (data) => {
 
 
 module.exports = {
-  // getOrdersSuccess,
-  // getOrdersFailure,
   showOrderSuccess,
   showOrderFailure,
   removeItemSuccess,
