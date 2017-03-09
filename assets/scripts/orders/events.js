@@ -19,7 +19,7 @@ const onShowOrder = function (event) {
   delete cart.order;
   let total = 0;
   for(let i = 0; i < cart.length; i++) {
-    total += (cart[i].item.price * cart[i].item.quantity);
+    total += (cart[i].price * cart[i].quantity);
   }
   ui.showOrderSuccess(cart, total);
 };
