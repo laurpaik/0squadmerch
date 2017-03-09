@@ -9,12 +9,12 @@
   </thead>
 
   <tbody>
-  {{#each items as |i|}}
+  {{#each items as |item|}}
     <tr>
-      <td>{{i.item.name}}</td>
-      <td>{{i.item.description}}</td>
-      <td>{{i.item.price}}</td>
-      <td>{{i.item.quantity}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.quantity}}</td>
       <td>
         <button class="btn btn-primary item-edit" data-id="{{item._id}}" >Edit</button>
         <button class="btn btn-danger item-delete" data-id="{{item._id}}">Delete</button>

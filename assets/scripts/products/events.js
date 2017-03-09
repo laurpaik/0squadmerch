@@ -25,10 +25,10 @@ const onShowProduct = function (event) {
 const addToCart = function (event){
   event.preventDefault();
   let id = event.target.dataset.id;
-  let item = getFormFields(event.target);
-  console.log('item', item);
+  let i = getFormFields(event.target);
+  console.log('item', i.item);
   console.log(id);
-  cart.push(item);
+  cart.push(i.item);
   console.log('cart', cart);
 };
 
