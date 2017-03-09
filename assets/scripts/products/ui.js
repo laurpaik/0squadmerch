@@ -1,6 +1,5 @@
 'use strict';
 const hbs = require('../templates/products.handlebars');
-const hbsShow = require('../templates/show-product.handlebars');
 
 const getProductsSuccess = (data) => {
   let productsTemplate = hbs({ products: data.products });
@@ -12,8 +11,11 @@ const getProductsFailure = (data) => {
 };
 
 const showProductSuccess = (data) => {
-  let productsTemplate = hbsShow({ product: data.product });
-  $('.product-container').html(productsTemplate);
+  console.log(data);
+  $('.name').val(data.product.name);
+  $('.price').val(data.product.price);
+  $('.description').val(data.product.description);
+  $('.img').val(data.product.img);
 };
 
 const showProductFailure = (data) => {

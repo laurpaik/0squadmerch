@@ -1,7 +1,7 @@
 'use strict';
 
 const hbsCart = require('../templates/myCart.handlebars');
-const orderStore = require('../orderStore');
+const cart = require('../cart');
 
 // const getOrdersSuccess = (data) => {
 //   let productsTemplate = hbsCart({ products: data.orders });
@@ -20,7 +20,7 @@ const isCartEmpty = (data) => {
 };
 
 const showOrderSuccess = (data) => {
-  orderStore.order = data.order;
+  cart.order = data.order;
   let cartTemplate = hbsCart({ order: data.order });
   $('.cart-modal').html(cartTemplate);
 };
@@ -31,9 +31,9 @@ const showOrderFailure = (data) => {
 
 const removeItemSuccess = (data) => {
   if (isCartEmpty(data)) {
-    delete orderStore.order;
+    delete cart.order;
   }
-  return orderStore;
+  return cart;
 };
 
 
