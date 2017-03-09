@@ -5,6 +5,8 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 
+const orderEvents = require('../orders/events');
+
 const cart = require('../cart');
 
 const onGetProducts = function (event) {
@@ -39,10 +41,25 @@ const addToCart = function (event){
     }
 };
 
+const removeFromCart = function (event) {
+  event.preventDefault();
+  let id = event.target.dataset.id;
+  let delObj = cart.find((item) => {
+      if(item._id === id) {
+        return item;
+      }
+    });
+  let delObjInd = cart.indexOf(delObj);
+  cart.splice(delObjInd, 1);
+  orderEvents.onShowOrder(event);
+  console.log(cart);
+};
+
 const addHandlers = () => {
   $('#get-products').on('click', onGetProducts);
   $('.products-container').on('click', ".show-product", onShowProduct);
   $("#show-form").on('submit', addToCart);
+  $('.cart-modal').on('click', ".item-delete", removeFromCart);
 };
 
 module.exports = {
