@@ -19,9 +19,9 @@ const isCartEmpty = (data) => {
   return false;
 };
 
-const showOrderSuccess = (data) => {
+const showOrderSuccess = (data, total) => {
   cart.order = data.order;
-  let cartTemplate = hbsCart({ order: data.order });
+  let cartTemplate = hbsCart({ items: cart, total: total });
   $('.cart-modal').html(cartTemplate);
 };
 

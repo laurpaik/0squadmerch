@@ -9,12 +9,12 @@
   </thead>
 
   <tbody>
-  {{#each order.items as |item|}}
+  {{#each items as |i|}}
     <tr>
-      <td>{{item.name}}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.price}}</td>
-      <td>{{item.quantity}}</td>
+      <td>{{i.item.name}}</td>
+      <td>{{i.item.description}}</td>
+      <td>{{i.item.price}}</td>
+      <td>{{i.item.quantity}}</td>
       <td>
         <button class="btn btn-primary item-edit" data-id="{{item._id}}" >Edit</button>
         <button class="btn btn-danger item-delete" data-id="{{item._id}}">Delete</button>
@@ -23,4 +23,4 @@
     {{/each}}
   </tbody>
 </table>
-<h5>Total is: {{order.orderPrice}}</h5>
+<h5>Total is: {{total}}</h5>

@@ -17,21 +17,23 @@ const onGetOrders = function (event) {
 const onShowOrder = function (event) {
   event.preventDefault();
   delete cart.order;
-  // let id = event.target.dataset.id;
-  let id = "58c178044a4cda209add3f68";
-  api.showOrder(id)
-    .then(ui.showOrderSuccess)
-    .catch(ui.showOrderFailure);
+  let total = 0;
+  for(let i = 0; i < cart.length; i++) {
+    total += (cart[i].item.price * cart[i].item.quantity);
+  }
+  ui.showOrderSuccess(cart, total);
 };
 
-// const onCreateOrder = function (event) {
-//   event.preventDefault();
-//     let data = cart;
-//
-//   api.createOrder(data)
-//     .then()
-//     .catch();
-// };
+const onCreateOrder = function (event) {
+  event.preventDefault();
+  let order = {
+    items: cart
+  };
+  console.log(order);
+  api.createOrder(order)
+    .then()
+    .catch();
+};
 
 
 // this is a patch function that removes a selected item from the current cart
@@ -71,6 +73,7 @@ const addHandlers = () => {
   $('#get-orders').on('click', onGetOrders);
   $('.cart-btn').on('click', onShowOrder);
   $('#myCartModal').on('click', '.item-delete', onRemoveItem);
+  $('#checkout-btn').on('click', onCreateOrder);
 };
 
 module.exports = {
