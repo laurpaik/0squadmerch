@@ -1,6 +1,7 @@
 'use strict';
 
 const hbsCart = require('../templates/myCart.handlebars');
+const orderStore = require('../orderStore');
 
 // const getOrdersSuccess = (data) => {
 //   let productsTemplate = hbsCart({ products: data.orders });
@@ -12,6 +13,7 @@ const hbsCart = require('../templates/myCart.handlebars');
 // };
 
 const showOrderSuccess = (data) => {
+  orderStore.order = data.order;
   let cartTemplate = hbsCart({ order: data.order });
   $('.cart-modal').html(cartTemplate);
 };
