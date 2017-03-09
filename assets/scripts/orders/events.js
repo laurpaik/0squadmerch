@@ -16,7 +16,7 @@ const onGetOrders = function (event) {
 
 const onShowOrder = function (event) {
   event.preventDefault();
-  delete cart.order;
+  // delete cart.order;
   let total = 0;
   for(let i = 0; i < cart.length; i++) {
     total += (cart[i].price * cart[i].quantity);
@@ -26,47 +26,52 @@ const onShowOrder = function (event) {
 
 const onCreateOrder = function (event) {
   event.preventDefault();
-  let order = {
-    items: cart
+  let data = {
+    order: {
+      items: cart,
+      complete: true
+    }
   };
-  console.log(order);
-  api.createOrder(order)
-    .then()
-    .catch();
+  console.log(data);
+  api.createOrder(data)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch(console.error);
 };
 
 
 // this is a patch function that removes a selected item from the current cart
 const onRemoveItem = function (event) {
-  event.preventDefault();
-  let itemId = event.target.dataset.id;
-  let id = cart.order._id;
-  // let items = cart.order.items;
-  if (cart.order.items.length === 1) {
-    cart.order.items.pop();
-    console.log("order is", cart);
-  }
-  else {
-    let delObj = cart.order.items.find((item) => {
-      if(item._id === itemId) {
-        return item;
-      }
-    });
-    let delObjInd = cart.order.items.indexOf(delObj);
-    cart.order.items.splice(delObjInd, 1);
-  }
-  console.log(cart);
-  api.updateOrder(id, cart)
-    .then((data) => {
-      if (cart !== {}){
-        onShowOrder(event);
-      }
-      else {
-        ui.removeItemSuccess(data);
-        console.log("order is", cart);
-      }
-    })
-    .catch(ui.showOrderFailure);
+  // event.preventDefault();
+  // let itemId = event.target.dataset.id;
+  // let id = cart.order._id;
+  // // let items = cart.order.items;
+  // if (cart.order.items.length === 1) {
+  //   cart.pop();
+  //   console.log("order is", cart);
+  // }
+  // else {
+  //   let delObj = cart.order.items.find((item) => {
+  //     if(item._id === itemId) {
+  //       return item;
+  //     }
+  //   });
+  //   let delObjInd = cart.order.items.indexOf(delObj);
+  //   cart.order.items.splice(delObjInd, 1);
+  // }
+  // console.log(cart);
+  // api.updateOrder(id, cart)
+  //   .then((data) => {
+  //     if (cart !== {}){
+  //       onShowOrder(event);
+  //     }
+  //     else {
+  //       ui.removeItemSuccess(data);
+  //       console.log("order is", cart);
+  //     }
+  //   })
+  //   .catch(ui.showOrderFailure);
 };
 
 const addHandlers = () => {
