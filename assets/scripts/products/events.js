@@ -5,6 +5,8 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 
+const cart = require('../cart');
+
 const onGetProducts = function (event) {
   event.preventDefault();
   api.getProducts()
@@ -24,14 +26,16 @@ const addToCart = function (event){
   event.preventDefault();
   let id = event.target.dataset.id;
   let item = getFormFields(event.target);
-  console.log(item);
+  console.log('item', item);
   console.log(id);
+  cart.push(item);
+  console.log('cart', cart);
 };
 
 const addHandlers = () => {
   $('#get-products').on('click', onGetProducts);
   $('.products-container').on('click', ".show-product", onShowProduct);
-  $('.products-container').on('submit', "#show-form", addToCart);
+  $("#show-form").on('submit', addToCart);
 };
 
 module.exports = {
