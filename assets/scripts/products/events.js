@@ -61,7 +61,22 @@ const removeFromCart = function (event) {
   orderEvents.onShowOrder(event);
 };
 
+const updateCart = function (event) {
+  let id = event.target.dataset.id;
+  let i = $('.selectedItem').val();
+  let currentProduct = cart.find(function(item) {
+    if(item._id === id) {
+      return item;
+    }
+  });
+    let currProdIndex = cart.indexOf(currentProduct);
+    cart[currProdIndex].quantity = parseInt(i);
+    orderEvents.onShowOrder(event);
+};
+
+
 const addHandlers = () => {
+  $('.cart-modal').on('click', ".item-edit", updateCart);
   $('.products-container').on('click', ".show-product", onShowProduct);
   $('.product-modal').on('submit', "#show-form", addToCart);
   $('.cart-modal').on('click', ".item-delete", removeFromCart);

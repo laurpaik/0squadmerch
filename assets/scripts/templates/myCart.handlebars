@@ -14,10 +14,20 @@
       <td>{{item.name}}</td>
       <td>{{item.description}}</td>
       <td>{{item.price}}</td>
-      <td>{{item.quantity}}</td>
+      <td><select class="selectedItem">
+        <option {{item-value 1 item.quantity}} value="1">1</option>
+        <option {{item-value 2 item.quantity}} value="2">2</option>
+        <option {{item-value 3 item.quantity}} value="3">3</option>
+        <option {{item-value 4 item.quantity}} value="4">4</option>
+        <option {{item-value 5 item.quantity}} value="5">5</option>
+        <option {{item-value 6 item.quantity}} value="6">6</option>
+        <option {{item-value 7 item.quantity}} value="7">7</option>
+        <option {{item-value 8 item.quantity}} value="8">8</option>
+        <option {{item-value 9 item.quantity}} value="9">9</option>
+        <option {{item-value 10 item.quantity}} value="10">10</option></select></td>
       <td>
-        <button class="btn btn-primary item-edit" data-id="{{item._id}}" >Edit</button>
         <button class="btn btn-danger item-delete" data-id="{{item._id}}">Delete</button>
+        <button class="btn btn-primary item-edit" data-id="{{item._id}}" >Update Quantity</button>
       </td>
     </tr>
     {{/each}}
