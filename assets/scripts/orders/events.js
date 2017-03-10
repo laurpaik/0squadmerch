@@ -37,10 +37,22 @@ const onCreateOrder = function (event) {
     .catch(console.error);
 };
 
+const onDeleteOrder = function (event) {
+  event.preventDefault();
+  let id = event.target.dataset.id;
+  api.destroyOrder(id)
+    .then(ui.destroyOrderSuccess)
+    .then(() => {
+      onGetOrders(event);
+    })
+    .catch(console.error);
+};
+
 const addHandlers = () => {
   $('#get-orders').on('click', onGetOrders);
   $('.cart-btn').on('click', onShowOrder);
   $('#checkout-btn').on('click', onCreateOrder);
+  $('.order-history').on('click', '.delete-order', onDeleteOrder);
 };
 
 module.exports = {

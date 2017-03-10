@@ -39,10 +39,21 @@ const createOrder = function (data) {
   });
 };
 
+const destroyOrder = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/orders/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
 
 module.exports = {
   getOrders,
   showOrder,
   updateOrder,
-  createOrder
+  createOrder,
+  destroyOrder,
 };
