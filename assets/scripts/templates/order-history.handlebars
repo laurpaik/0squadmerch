@@ -1,0 +1,11 @@
+{{#each orders as |order|}}
+<div>
+  <ul class="orders">
+    <li>{{order._id}}</li>
+    <li>${{order.orderPrice}}</li>
+    <li>{{order.createdAt}}</li>
+    <li><button class="btn btn-danger delete-order" data-id="{{order._id}}">Delete</button></li>
+  </ul>
+</div>
+
+{{/each}}

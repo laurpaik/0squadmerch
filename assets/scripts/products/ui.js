@@ -4,7 +4,7 @@ const hbsProduct = require('../templates/showProduct.handlebars')
 
 const getProductsSuccess = (data) => {
   let productsTemplate = hbs({ products: data.products });
-  $('.products-container').append(productsTemplate);
+  $('.products-container').html(productsTemplate);
 };
 
 const getProductsFailure = (data) => {
@@ -12,11 +12,6 @@ const getProductsFailure = (data) => {
 };
 
 const showProductSuccess = (data) => {
-  // $('.name').val(data.product.name);
-  // $('.price').val(data.product.price);
-  // $('.description').val(data.product.description);
-  // $('.img').val(data.product.img);
-  // $('.id').val(data.product._id);
   let productTemplate = hbsProduct({ product: data.product });
   $('.product-modal').html(productTemplate);
 
