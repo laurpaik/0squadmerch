@@ -1,0 +1,24 @@
+<div>
+  <form id='show-form'>
+    <ul>
+      <li><img src="{{product.img}}" alt="picture" style="width:150px;height:150px;"></li>
+      <li><input class="name hide" name="item[name]" type="text" value="{{product.name}}" readonly></li>
+      <li><input class="price" name="item[price]" type="text" value="{{product.price}}" readonly ></li>
+      <li><input class="description" name="item[description]" type="text" value="{{product.description}}" readonly ></li>
+      <li><input class="id"name="item[_id]" type="text" value="{{product.id}}" readonly></li>
+      <li><select class="quantity" name="item[quantity]">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select></li>
+      <li><button type="submit" class="add-to-cart">Add To Cart</button></li>
+    </ul>
+  </form>
+</div>
