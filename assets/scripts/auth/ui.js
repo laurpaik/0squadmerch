@@ -75,7 +75,7 @@ const signOutSuccess = () => {
    $('#sign-up').show();
    $('.products-container').hide();
    $('#show-form').hide();
-  
+
 
 
 	store.user = {};
