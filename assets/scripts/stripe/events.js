@@ -1,6 +1,8 @@
 'use strict';
 
 const api = require('./api');
+const orderAPI = require('../orders/api.js');
+const cart = require('../cart');
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_0WJB4joLJNPPaX6ya7rnxh8c',
@@ -16,16 +18,22 @@ let handler = StripeCheckout.configure({
   }
 });
 
-const onCreateCharge = function (event, total) {
+const onCreateCharge = function (event, order) {
   event.preventDefault();
 
   handler.open({
     name: '0Squad Merch',
     description: 'Cart',
     closed: function() {
-      // api.patchOrder().then(ui.changePaidStatusSuccess).catch(ui.failure);
+      let data = {
+        order: {
+          items: cart,
+          complete: true
+        }
+      };
+      orderAPI.updateOrder(order._id, data);
     },
-    amount: total * 100
+    amount: order.orderPrice * 100
   });
 };
 

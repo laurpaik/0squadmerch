@@ -26,13 +26,13 @@ const onCreateOrder = function (event) {
   let data = {
     order: {
       items: cart,
-      complete: true
+      complete: false
     }
   };
   api.createOrder(data)
     .then((data) => {
       ui.checkoutCart(data);
-      stripe.onCreateCharge(event, data.order.orderPrice);
+      stripe.onCreateCharge(event, data.order);
     })
     .catch(console.error);
 };
@@ -46,6 +46,10 @@ const onDeleteOrder = function (event) {
       onGetOrders(event);
     })
     .catch(console.error);
+};
+
+const onUpdateOrder = function () {
+
 };
 
 const addHandlers = () => {

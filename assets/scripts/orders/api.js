@@ -7,6 +7,9 @@ const getOrders = function (){
   return $.ajax({
     url: config.apiOrigin + '/orders',
     method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
   });
 };
 
