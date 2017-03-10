@@ -40,12 +40,18 @@ const addToCart = function (event){
     });
     if (currentProduct !== undefined) {
       let currProdIndex = cart.indexOf(currentProduct);
-      cart[currProdIndex].quantity += parseInt(i.item.quantity);
+      if(cart[currProdIndex].quantity + parseInt(i.item.quantity) < 10) {
+        cart[currProdIndex].quantity += parseInt(i.item.quantity);
+        ui.addToCartSuccess();
+      } else {
+        cart[currProdIndex].quantity = 10;
+        ui.maxItemSuccess();
+      }
     } else {
       i.item.quantity = parseInt(i.item.quantity);
       cart.push(i.item);
+      ui.addToCartSuccess();
     }
-    ui.addToCartSuccess();
 };
 
 const removeFromCart = function (event) {
