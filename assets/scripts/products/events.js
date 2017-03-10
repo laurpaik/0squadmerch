@@ -9,12 +9,12 @@ const orderEvents = require('../orders/events');
 
 const cart = require('../cart');
 
-const onGetProducts = function (event) {
-  event.preventDefault();
-  api.getProducts()
-    .then(ui.getProductsSuccess)
-    .catch(ui.getProductsFailure);
-};
+// const onGetProducts = function (event) {
+//   event.preventDefault();
+//   api.getProducts()
+//     .then(ui.getProductsSuccess)
+//     .catch(ui.getProductsFailure);
+// };
 
 const onShowProduct = function (event) {
   event.preventDefault();
@@ -22,6 +22,12 @@ const onShowProduct = function (event) {
   api.showProduct(id)
     .then(ui.showProductSuccess)
     .catch(ui.showProductFailure);
+};
+
+const onPageLoad = function () {
+  api.getProducts()
+    .then(ui.getProductsSuccess)
+    .catch(ui.getProductsFailure);
 };
 
 const addToCart = function (event){
@@ -56,7 +62,6 @@ const removeFromCart = function (event) {
 };
 
 const addHandlers = () => {
-  $('#get-products').on('click', onGetProducts);
   $('.products-container').on('click', ".show-product", onShowProduct);
   $('.product-modal').on('submit', "#show-form", addToCart);
   $('.cart-modal').on('click', ".item-delete", removeFromCart);
@@ -64,4 +69,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  onPageLoad,
 };

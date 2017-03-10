@@ -11,6 +11,7 @@ $(() => {
   authEvents.addHandlers();
   productEvents.addHandlers();
   orderEvents.addHandlers();
+  productEvents.onPageLoad();
 });
 
 // use require without a reference to ensure a file is bundled

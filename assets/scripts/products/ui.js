@@ -26,7 +26,6 @@ const addToCartSuccess = () => {
     $("#myProductModal").modal("hide");
     $('.alert-message').text( "An item has been added to you cart!");
     $('.alert-success').slideDown();
-
     $('.alert-success').delay(3000).slideUp();
 };
 
