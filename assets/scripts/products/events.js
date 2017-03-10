@@ -39,6 +39,7 @@ const addToCart = function (event){
       i.item.quantity = parseInt(i.item.quantity);
       cart.push(i.item);
     }
+    ui.addToCartSuccess();
 };
 
 const removeFromCart = function (event) {

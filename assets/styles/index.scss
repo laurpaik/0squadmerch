@@ -1,2 +1,135 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.products {
+	display: inline-block;
+	float: left;
+	padding: 5%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#sign-out {
+	margin-top: 8px;
+}
+
+#sign-up {
+	border: solid black;
+
+}
+
+.alert {
+	display: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: 175%;
+  color: #757575;
+  font-weight: 300;
+}
+
+h1, input {
+  font-family: "Open Sans", Raleway, sans-serif;
+}
+
+h5 {
+  text-align: center;
+  font-size: 100%;
+  color: #757575;
+  font-weight: 300;
+}
+
+h5, input {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+
+.input {
+  width: 75%;
+  height: 50px;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom-color: #3CC !important;
+}
+
+.input:hover {
+  border-bottom-color: #dcdcdc;
+}
+
+.input:invalid {
+  box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.inputButton {
+  position: relative;
+  width: 85%;
+  height: 50px;
+  display: block;
+  margin: 30px auto 30px;
+  color: white;
+  background-color: #546f6f;
+  border: none;
+  -webkit-box-shadow: 0 5px 0 #2CADAD;
+  -moz-box-shadow: 0 5px 0 #2CADAD;
+  box-shadow: 0 5px 0 #343a3a;
+}
+
+.inputButton:hover {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #343a3a;
+  -moz-box-shadow: 0 3px 0 #343a3a;
+  box-shadow: 0 3px 0 #343a3a;
+}
+
+.inputButton:active {
+  top: 5px;
+  box-shadow: none;
+}
+
+.inputButton:focus {
+  outline: none;
+}
+
+.navbar-brand {
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: Helvetica;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: white;
+  width: 100%;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+td {
+  font-style: italic;
+}
+
+img {
+	border: solid black;
+	border-width: 3px;
+}
+

@@ -16,10 +16,15 @@ const checkForUser = function() {
     $('#sign-in').hide();
     $('#sign-out').show();
     $('#change-password').show();
+    $('#sign-up').hide();
   } else {
     $('#sign-out').hide();
     $('#change-password').hide();
     $('#sign-in').show();
+    $('#sign-up').show();
+    $('.products-container').hide();
+    $('#show-form').hide();
+    $('.cart-btn').hide();
   }
 };
 
@@ -52,6 +57,10 @@ const signInSuccess = (resp) => {
 	//keeps a copy of the user in local storage to keep  session open
 	window.localStorage.setItem('user', JSON.stringify(resp.user));
   loggedInSuccess();
+  $('#sign-up').hide();
+  $('.products-container').show();
+  $('#show-form').show();
+  $('.cart-btn').show();
   $('.alert-message').text('You have signed is as ' + resp.user.email);
 	$('.alert-success').slideDown();
 
@@ -63,8 +72,10 @@ const signInSuccess = (resp) => {
 };
 
 const signOutSuccess = () => {
-  $('#logbox').show();
-  $('#lobbox2').hide();
+   $('#sign-up').show();
+   $('.products-container').hide();
+   $('#show-form').hide();
+  
 
 
 	store.user = {};
@@ -76,6 +87,10 @@ const signOutSuccess = () => {
 };
 
 const signOutFailure = () => {
+   $('#sign-up').show();
+   $('.products-container').hide();
+   $('#show-form').hide();
+   $('.cart-btn').hide();
 
   store.user = {};
   window.localStorage.removeItem('user');
