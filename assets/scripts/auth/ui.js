@@ -17,6 +17,7 @@ const checkForUser = function() {
     $('#sign-out').show();
     $('#change-password').show();
     $('#sign-up').hide();
+    $('#get-orders').show();
   } else {
     $('#sign-out').hide();
     $('#change-password').hide();
@@ -25,6 +26,8 @@ const checkForUser = function() {
     $('.products-container').hide();
     $('#show-form').hide();
     $('.cart-btn').hide();
+    $('#get-orders').hide();
+    $('.orders').detach();
   }
 };
 
