@@ -3,6 +3,7 @@
 const api = require('./api');
 const ui = require('./ui');
 const cart = require('../cart');
+const stripe = require('../stripe/events');
 
 const onGetOrders = function (event) {
   event.preventDefault();
@@ -31,6 +32,7 @@ const onCreateOrder = function (event) {
   api.createOrder(data)
     .then((data) => {
       ui.checkoutCart(data);
+      stripe.onCreateCharge(event, data.order.orderPrice);
     })
     .catch(console.error);
 };
