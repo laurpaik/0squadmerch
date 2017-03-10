@@ -1,9 +1,9 @@
 {{#each products as |product|}}
 <div>
   <ul class="products">
-    <li><img src="{{product.img}}" alt="picture" style="width:150px;height:150px;"></li>
+    <li><img src="{{product.img}}" alt="picture" style="width:150px;height:150px;" class="show-product" data-id={{product._id}} onclick="" data-toggle="modal" data-target="#myProductModal"></li>
     <li>{{product.name}}</li>
-    <li><button class="show-product" data-id={{product._id}}>Show One</button></li>
+    <li>${{product.price}}
   </ul>
 </div>
 

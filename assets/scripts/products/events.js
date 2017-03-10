@@ -58,7 +58,7 @@ const removeFromCart = function (event) {
 const addHandlers = () => {
   $('#get-products').on('click', onGetProducts);
   $('.products-container').on('click', ".show-product", onShowProduct);
-  $("#show-form").on('submit', addToCart);
+  $('.product-modal').on('submit', "#show-form", addToCart);
   $('.cart-modal').on('click', ".item-delete", removeFromCart);
 };
 
