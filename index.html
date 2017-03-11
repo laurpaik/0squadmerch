@@ -91,36 +91,40 @@
           </div>
         </div>
       </div>
-      <button id="get-orders">Show Order History</button>
-      <div class="products-container">
-      </div>
-
-    <div class="product-container">
+      <!-- Button trigger modal -->
+      <button id="get-orders" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myPastOrderModal">
+        Show Order History
+      </button>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary btn-lg cart-btn" data-toggle="modal" data-target="#myCartModal">
         See My Cart!
       </button>
-      <!-- Modal -->
-      <div class="modal fade" id="myCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">My Cart</h4>
-            </div>
-            <div class="cart-modal">
+      <div class="products-container">
+      </div>
 
-            </div>
-            <div class="modal-footer">
-              <script src="https://checkout.stripe.com/checkout.js"></script>
-              <button type="button" id="checkout-btn" class="btn btn-primary">Checkout</button>
-            </div>
-          </div>
-        </div>
+    <div class="product-container">
+
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="myCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">My Cart</h4>
+      </div>
+      <div class="cart-modal">
+
+      </div>
+      <div class="modal-footer">
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+        <button type="button" id="checkout-btn" class="btn btn-primary">Checkout</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="myProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -137,8 +141,23 @@
     </div>
   </div>
 </div>
-<div class="order-history">
 
-</div>
+  <!-- Modal -->
+  <div class="modal fade" id="myPastOrderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">My Past Orders</h4>
+        </div>
+        <div class="order-history">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
