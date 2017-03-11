@@ -6,7 +6,7 @@ const cart = require('../cart');
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_0WJB4joLJNPPaX6ya7rnxh8c',
-  image: './assets/images/donut1.png',
+  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   token: function(token) {
     let credentials = {
