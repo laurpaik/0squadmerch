@@ -9,11 +9,20 @@ body {
 	float: left;
 	padding: 5%;
 }
+
 ul {
 	list-style-type: none;
 }
 
+.productWindow {
+  text-align: center;
+  background: white;
+}
 
+.products {
+  font-size: 2em;
+  font-weight: bolder;
+}
 #sign-out {
 	margin-top: 8px;
 }
