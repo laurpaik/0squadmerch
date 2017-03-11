@@ -1,0 +1,27 @@
+<table class="order-history-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>ID</th>
+      <th>Items</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {{#each orders as |order|}}
+    <tr>
+      <td>{{order.createdAt}}</td>
+      <td>{{order._id}}</td>
+      <td>{{#each order.items as |item|}}
+        {{item.name}},
+      {{/each}}
+      </td>
+      <td>${{order.orderPrice}}</td>
+      <td>
+        <button class="btn btn-danger delete-order" data-id="{{order._id}}">Delete</button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

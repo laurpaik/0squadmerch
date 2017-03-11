@@ -2,7 +2,7 @@
 
 const hbsCart = require('../templates/myCart.handlebars');
 const cart = require('../cart');
-const orderTemplate = require('../templates/order-history.handlebars');
+const orderTemplate = require('../templates/orderhistory.handlebars');
 
 const clearCart = function () {
   for (let i = 0; i < cart.length; i++) {
