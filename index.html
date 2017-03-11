@@ -76,6 +76,12 @@
       <div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
       <div class="alert alert-danger alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="danger-alert-message"></span></div>
 
+      <div class="jumbotron">
+        <h1 class="display-3">Welcome to 0 Squad Merch!</h1>
+        <hr class="my-4">
+        <p>Where the products are made up and the payments don't matter! Please Sign in to get access to our exculsive products!</p>
+      </div>
+
       <div>
         <div class="container" >
           <div class="col-md-6" >
@@ -100,19 +106,26 @@
       <button type="button" class="btn btn-primary btn-lg cart-btn" data-toggle="modal" data-target="#myCartModal">
         See My Cart!
       </button>
-      <div class="products-container">
+            <!-- Modal -->
+      <div class="modal fade" id="myCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">My Cart</h4>
+            </div>
+            <div class="cart-modal">
+
+            </div>
+            <div class="modal-footer">
+              <script src="https://checkout.stripe.com/checkout.js"></script>
+              <button type="button" id="checkout-btn" class="btn btn-primary">Checkout</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">My Cart</h4>
-      </div>
-      <div class="cart-modal">
-
+<<<<<<< HEAD
       </div>
       <div class="modal-footer">
         <script src="https://checkout.stripe.com/checkout.js"></script>
@@ -147,16 +160,45 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">My Order History</h4>
-        </div>
-        <div class="order-history">
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+=======
+      <!-- Modal -->
+      <div class="modal fade" id="myProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="product-modal">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+>>>>>>> Makes all necessary style changes
         </div>
       </div>
+
+        <!-- Modal -->
+      <div class="modal fade" id="myPastOrderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">My Past Orders</h4>
+              </div>
+              <div class="order-history">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="products-container">
+      </div>
     </div>
-  </div>
-</div>
-</body>
+    </body>
 </html>
