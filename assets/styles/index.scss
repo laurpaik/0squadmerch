@@ -1,6 +1,9 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background: url("https://files.slack.com/files-pri/T0351JZQ0-F4FU79D89/download/0squad.jpg");
+}
 .products {
 	display: inline-block;
 	float: left;
@@ -9,6 +12,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 ul {
 	list-style-type: none;
 }
+
 
 #sign-out {
 	margin-top: 8px;
