@@ -8,7 +8,9 @@ const clearCart = function () {
   for (let i = 0; i < cart.length; i++) {
     cart.pop();
   }
-  showOrderSuccess([], 0);
+  cart.pop();
+  $('.order-table').detach();
+  $('#myCartModal').modal('hide');
 };
 
 const isCartEmpty = (data) => {
@@ -24,7 +26,6 @@ const showOrderSuccess = (data, total) => {
     let cartTemplate = hbsCart({ items: cart, total: total });
     $('.cart-modal').html(cartTemplate);
   } else {
-    $('.order-table').detach();
     $('.cart-modal').html('Empty cart!');
     $('#checkout-btn').hide();
   }

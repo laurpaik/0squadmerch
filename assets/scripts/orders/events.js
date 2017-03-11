@@ -4,6 +4,7 @@ const api = require('./api');
 const ui = require('./ui');
 const cart = require('../cart');
 const stripe = require('../stripe/events');
+let orderComplete = require('../ordercomplete');
 
 const onGetOrders = function (event) {
   event.preventDefault();
@@ -29,11 +30,20 @@ const onCreateOrder = function (event) {
       complete: false
     }
   };
-  api.createOrder(data)
-    .then((data) => {
-      stripe.onCreateCharge(event, data.order);
-    })
-    .catch(console.error);
+  if (orderComplete === '') {
+    api.createOrder(data)
+      .then((data) => {
+        orderComplete = data.order._id;
+        return stripe.onCreateCharge(event, data.order);
+      })
+      .catch(console.error);
+  } else {
+    api.updateOrder(orderComplete, data)
+      .then((data) => {
+        return stripe.onCreateCharge(event, data.order);
+      })
+      .catch(console.error);
+  }
 };
 
 const onDeleteOrder = function (event) {
