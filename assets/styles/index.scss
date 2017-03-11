@@ -32,6 +32,12 @@ ul {
   background-color: rgba(245, 245, 245, 0.9);
 }
 
+.products li {
+  border: solid #ee75bd;
+  background-color: rgba(245, 245, 245, 0.9);
+  border-width: 1px 2px;
+}
+
 .alert {
 	display: none;
 }

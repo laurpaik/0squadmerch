@@ -1,3 +1,5 @@
+[<img src="./images/0SquadLogo.png"/>](https://github.com/0Squad)
+
 # 0Squad Merch
 An E-Commerce app that allows users to purchase our squad's merchandise.
 

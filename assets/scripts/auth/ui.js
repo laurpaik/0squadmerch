@@ -18,6 +18,7 @@ const checkForUser = function() {
     $('#change-password').show();
     $('#sign-up').hide();
     $('#get-orders').show();
+    $('.jumbotron').hide();
   } else {
     $('#sign-out').hide();
     $('#change-password').hide();
@@ -27,6 +28,7 @@ const checkForUser = function() {
     $('#show-form').hide();
     $('.cart-btn').hide();
     $('#get-orders').hide();
+    $('.jumbotron').show();
     $('.orders').detach();
   }
 };
