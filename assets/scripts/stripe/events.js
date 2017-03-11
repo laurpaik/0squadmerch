@@ -3,6 +3,7 @@
 const api = require('./api');
 const orderAPI = require('../orders/api.js');
 const cart = require('../cart');
+const ui = require('../orders/ui');
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_0WJB4joLJNPPaX6ya7rnxh8c',
@@ -32,6 +33,8 @@ const onCreateCharge = function (event, order) {
         }
       };
       orderAPI.updateOrder(order._id, data);
+      ui.clearCart();
+      $('#myCartModal').modal('hide');
     },
     amount: order.orderPrice * 100
   });

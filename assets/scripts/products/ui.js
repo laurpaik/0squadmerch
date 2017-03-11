@@ -26,14 +26,14 @@ const addToCartSuccess = () => {
     $("#myProductModal").modal("hide");
     $('.alert-message').text( "An item has been added to your cart!");
     $('.alert-success').slideDown();
-    $('.alert-success').delay(3000).slideUp();
+    $('.alert-success').delay(2000).slideUp();
 };
 const maxItemSuccess = () => {
     $("#show-form")[0].reset();
     $("#myProductModal").modal("hide");
     $('.danger-alert-message').text( "An order cannot exceed 10 of the same items!");
     $('.alert-danger').slideDown();
-    $('.alert-danger').delay(3000).slideUp();
+    $('.alert-danger').delay(2000).slideUp();
 };
 
 

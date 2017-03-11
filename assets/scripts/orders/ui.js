@@ -32,9 +32,17 @@ const getOrdersSuccess = (data) => {
   $('.order-history').html(orderHBS);
 };
 
+const clearCart = function () {
+  for (let i = 0; i < cart.length; i++) {
+    cart.pop();
+  }
+  showOrderSuccess([], 0);
+};
+
 module.exports = {
   showOrderSuccess,
   showOrderFailure,
   removeItemSuccess,
   getOrdersSuccess,
+  clearCart,
 };
