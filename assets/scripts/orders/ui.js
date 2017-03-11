@@ -4,6 +4,13 @@ const hbsCart = require('../templates/myCart.handlebars');
 const cart = require('../cart');
 const orderTemplate = require('../templates/order-history.handlebars');
 
+const clearCart = function () {
+  for (let i = 0; i < cart.length; i++) {
+    cart.pop();
+  }
+  showOrderSuccess([], 0);
+};
+
 const isCartEmpty = (data) => {
   if (data.order.items.length === 0) {
     return true;
@@ -12,8 +19,15 @@ const isCartEmpty = (data) => {
 };
 
 const showOrderSuccess = (data, total) => {
-  let cartTemplate = hbsCart({ items: cart, total: total });
-  $('.cart-modal').html(cartTemplate);
+  if (cart.length > 0) {
+    $('#checkout-btn').show();
+    let cartTemplate = hbsCart({ items: cart, total: total });
+    $('.cart-modal').html(cartTemplate);
+  } else {
+    $('.order-table').detach();
+    $('.cart-modal').html('Empty cart!');
+    $('#checkout-btn').hide();
+  }
 };
 
 const showOrderFailure = (data) => {
@@ -24,7 +38,7 @@ const removeItemSuccess = (data) => {
   if (isCartEmpty(data)) {
     delete cart.order;
   }
-  return cart;
+  showOrderSuccess(cart);
 };
 
 const getOrdersSuccess = (data) => {
@@ -32,12 +46,7 @@ const getOrdersSuccess = (data) => {
   $('.order-history').html(orderHBS);
 };
 
-const clearCart = function () {
-  for (let i = 0; i < cart.length; i++) {
-    cart.pop();
-  }
-  showOrderSuccess([], 0);
-};
+
 
 module.exports = {
   showOrderSuccess,
