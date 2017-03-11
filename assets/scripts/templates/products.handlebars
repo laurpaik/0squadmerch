@@ -1,9 +1,9 @@
 {{#each products as |product|}}
-<div>
+<div class="productWindow">
   <ul class="products">
-    <li><img src="{{product.img}}" alt="picture" style="width:150px;height:150px;" class="show-product" data-id={{product._id}} onclick="" data-toggle="modal" data-target="#myProductModal"></li>
+    <li><img src="{{product.img}}" alt="picture" style="width:200px;height:200px;" class="show-product" data-id={{product._id}} onclick="" data-toggle="modal" data-target="#myProductModal"></li>
     <li>{{product.name}}</li>
-    <li>${{product.price}}
+    <li>${{product.price}}.00</li>
   </ul>
 </div>
 
