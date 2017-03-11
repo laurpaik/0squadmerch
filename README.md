@@ -16,9 +16,16 @@ In terms of work flow and structure, we utilized our internal issue queue and pr
 Initially, we wanted our *DELETE* function to delete an item from the order each time someone removes a product. However, we quickly realized that *DELETE* would delete the entire order, so we would have to constantly *POST* every time we did that. After a group discussion, we decided it would be DRYer to have our *POST* happen on "checkout" rather than on "add to cart". This allowed us to separate concerns and not rely on a single button to do *POST*, *PATCH*, and *DELETE* depending on a given situation.
 We changed our *DELETE* function to be an option for users if they wanted to delete an old order from their order history.
 
-### Connecting to the back-end
+We also had a discussion about *PATCH* in regards to when a user clicks "checkout" but changes their mind before paying. We edited the back-end `update` controller function to mimic `create` to add flexibility with our checkout.
 
-Our front-end essentially saves a user's cart onto local storage, so the order does not actually get created until the user completes their payment. When this happens, our app sends a *POST* request using the stored items in the local cart as our items array, with a completed status as `false`. Immediately after, our app sends a *PATCH* request updating the completed status as `true`.
+## Connecting to the back-end
+
+Our front-end saves a user's cart onto local storage, so the order does not actually get created until the user decides to checkout. When this happens, our app sends a *POST* request using the stored items in the local cart as our items array, with a completed status as `false`. When a user decides to pay, our `createCharge` function checks to see if an order that has not been paid exists. If there was a change in the order between "checkout" and "pay", `createCharge` updates the order.
+Once the order has been successfully paid, our app sends a *PATCH* request updating the completed status as `true`.
+
+## Future goals
+
+We would like to be able to see products and add to cart before signing in. If a user tries to purchase an item before signing in, the app would make them create an account/sign in.
 
 ## User Stories:
 ### Users can:
@@ -26,8 +33,8 @@ Our front-end essentially saves a user's cart onto local storage, so the order d
 - Sign in
 - Change password
 - See all products
+- Select one product
 - Add products to cart
-- Select one item
 - See cart
 - Edit/ delete items in cart
 - Purchase items
