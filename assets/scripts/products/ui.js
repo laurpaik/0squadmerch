@@ -7,18 +7,17 @@ const getProductsSuccess = (data) => {
   $('.products-container').html(productsTemplate);
 };
 
-const getProductsFailure = (data) => {
-  console.error(data);
-};
-
 const showProductSuccess = (data) => {
   let productTemplate = hbsProduct({ product: data.product });
   $('.product-modal').html(productTemplate);
 
 };
 
-const showProductFailure = (data) => {
-  console.error(data);
+const failure = () => {
+  $('.danger-alert-message').text("An unknown error occured.");
+  $('.alert-danger').slideDown();
+
+  $('.alert-danger').delay(2000).slideUp();
 };
 
 const addToCartSuccess = () => {
@@ -41,9 +40,8 @@ const maxItemSuccess = () => {
 
 module.exports = {
   getProductsSuccess,
-  getProductsFailure,
   showProductSuccess,
-  showProductFailure,
   addToCartSuccess,
-  maxItemSuccess
+  maxItemSuccess,
+  failure,
 };
