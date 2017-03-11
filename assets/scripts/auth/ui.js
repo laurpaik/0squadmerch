@@ -1,6 +1,8 @@
 'use strict';
 const store = require('../store');
 const cart = require('../cart');
+const ordersUI = require('../orders/ui');
+const orderComplete = require('../ordercomplete');
 
 
 const loggedInSuccess = () => {
@@ -34,19 +36,19 @@ const checkForUser = function() {
 };
 
 const signUpFailure = (err) => {
-	if (err.status === 400) {
-		//unauthorized
-		$('.danger-alert-message').text("Something went wrong. Check your email/password.");
+    if (err.status === 400) {
+        //unauthorized
+        $('.danger-alert-message').text("Something went wrong. Check your email/password.");
     $('.alert-danger').slideDown();
 
     $('.alert-danger').delay(2000).slideUp();
-	} else {
-		$('.danger-alert-message').text("An unknown error occured.");
+    } else {
+        $('.danger-alert-message').text("An unknown error occured.");
     $('.alert-danger').slideDown();
 
     $('.alert-danger').delay(2000).slideUp();
 
-	}
+    }
 };
 
 const signUpSuccess = () => {
@@ -58,22 +60,22 @@ const signUpSuccess = () => {
 };
 
 const signInSuccess = (resp) => {
-	store.user = resp.user;
-	//keeps a copy of the user in local storage to keep  session open
-	window.localStorage.setItem('user', JSON.stringify(resp.user));
+    store.user = resp.user;
+    //keeps a copy of the user in local storage to keep  session open
+    window.localStorage.setItem('user', JSON.stringify(resp.user));
   loggedInSuccess();
   $('#sign-up').hide();
   $('.products-container').show();
   $('#show-form').show();
   $('.cart-btn').show();
   $('.alert-message').text('You have signed is as ' + resp.user.email);
-	$('.alert-success').slideDown();
+    $('.alert-success').slideDown();
 
-	$('.alert-success').delay(2000).slideUp();
+    $('.alert-success').delay(2000).slideUp();
 
 
-	checkForUser();
-	return store.user;
+    checkForUser();
+    return store.user;
 };
 
 const signOutSuccess = () => {
@@ -83,12 +85,15 @@ const signOutSuccess = () => {
 
 
 
-	store.user = {};
-  cart.order = {};
-	// remove local storage user copy.
-	window.localStorage.removeItem('user');
-	checkForUser();
-	return store;
+   ordersUI.clearCart();
+   orderComplete.setId('');
+   store.user = {};
+   cart.order = {};
+
+    // remove local storage user copy.
+    window.localStorage.removeItem('user');
+    checkForUser();
+    return store;
 };
 
 const signOutFailure = () => {
@@ -105,41 +110,41 @@ const signOutFailure = () => {
 
 
 const signInFailure = (err) => {
-	if (err.status === 401) {
-		//unauthorized
-		$('.danger-alert-message').text("Wrong username or password! Try again");
+    if (err.status === 401) {
+        //unauthorized
+        $('.danger-alert-message').text("Wrong username or password! Try again");
     $('.alert-danger').slideDown();
 
-  	$('.alert-danger').delay(2000).slideUp();
-	} else {
-		$('.danger-alert-message').text("An unknown error occured.");
+      $('.alert-danger').delay(2000).slideUp();
+    } else {
+        $('.danger-alert-message').text("An unknown error occured.");
     $('.alert-danger').slideDown();
 
-  	$('.alert-danger').delay(2000).slideUp();
-	}
+      $('.alert-danger').delay(2000).slideUp();
+    }
 };
 
 const passwordChangeFailure = (err) => {
-	if (err.status === 400) {
-		//unauthorized
-		$('.danger-alert-message').text("Your existing password is incorect");
+    if (err.status === 400) {
+        //unauthorized
+        $('.danger-alert-message').text("Your existing password is incorect");
     $('.alert-danger').slideDown();
 
     $('.alert-danger').delay(2000).slideUp();
-	} else {
-		$('.danger-alert-message').text("An unknown error occured.");
+    } else {
+        $('.danger-alert-message').text("An unknown error occured.");
     $('.alert-danger').slideDown();
 
     $('.alert-danger').delay(2000).slideUp();
-	}
+    }
 };
 
 const passwordChangeSuccess = () => {
   $("#change-password")[0].reset();
-	$('.alert-message').text('You have sucessfully changed your password!');
-	$('.alert-success').slideDown();
+    $('.alert-message').text('You have sucessfully changed your password!');
+    $('.alert-success').slideDown();
 
-	$('.alert-success').delay(2000).slideUp();
+    $('.alert-success').delay(2000).slideUp();
 };
 
 
