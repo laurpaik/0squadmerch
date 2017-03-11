@@ -10,7 +10,7 @@ const onGetOrders = function (event) {
   event.preventDefault();
   api.getOrders()
     .then(ui.getOrdersSuccess)
-    .catch(ui.getOrdersFailure);
+    .catch(ui.failure);
 };
 
 const onShowOrder = function (event) {
@@ -36,13 +36,13 @@ const onCreateOrder = function (event) {
         orderComplete.setId(data.order._id);
         stripe.onCreateCharge(event, data.order);
       })
-      .catch(console.error);
+      .catch(ui.failure);
   } else {
     api.updateOrder(orderComplete.getId(), data)
       .then((data) => {
         return stripe.onCreateCharge(event, data.order);
       })
-      .catch(console.error);
+      .catch(ui.failure);
   }
 };
 
@@ -54,7 +54,7 @@ const onDeleteOrder = function (event) {
     .then(() => {
       onGetOrders(event);
     })
-    .catch(console.error);
+    .catch(ui.failure);
 };
 
 const addHandlers = () => {
