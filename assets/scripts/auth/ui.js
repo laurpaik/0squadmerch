@@ -1,7 +1,8 @@
 'use strict';
 const store = require('../store');
 const cart = require('../cart');
-
+let orderComplete = require('../ordercomplete');
+const ordersUI = require('../orders/ui');
 
 const loggedInSuccess = () => {
   $("#sign-in")[0].reset();
@@ -17,7 +18,6 @@ const checkForUser = function() {
     $('#sign-out').show();
     $('#change-password').show();
     $('#sign-up').hide();
-    $('#get-orders').show();
   } else {
     $('#sign-out').hide();
     $('#change-password').hide();
@@ -26,8 +26,6 @@ const checkForUser = function() {
     $('.products-container').hide();
     $('#show-form').hide();
     $('.cart-btn').hide();
-    $('#get-orders').hide();
-    $('.orders').detach();
   }
 };
 
@@ -79,10 +77,11 @@ const signOutSuccess = () => {
    $('.products-container').hide();
    $('#show-form').hide();
 
-
-
+   ordersUI.clearCart();
+  orderComplete.setId('');
 	store.user = {};
   cart.order = {};
+
 	// remove local storage user copy.
 	window.localStorage.removeItem('user');
 	checkForUser();
@@ -94,7 +93,6 @@ const signOutFailure = () => {
    $('.products-container').hide();
    $('#show-form').hide();
    $('.cart-btn').hide();
-
   store.user = {};
   window.localStorage.removeItem('user');
   checkForUser();

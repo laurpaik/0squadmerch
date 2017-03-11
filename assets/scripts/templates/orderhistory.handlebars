@@ -5,6 +5,7 @@
       <th>ID</th>
       <th>Items</th>
       <th>Total</th>
+      <th>Complete?</th>
     </tr>
   </thead>
 
@@ -18,6 +19,7 @@
       {{/each}}
       </td>
       <td>${{order.orderPrice}}</td>
+      <td>{{order.complete}}</td>
       <td>
         <button class="btn btn-danger delete-order" data-id="{{order._id}}">Delete</button>
       </td>
