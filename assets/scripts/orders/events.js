@@ -30,15 +30,15 @@ const onCreateOrder = function (event) {
       complete: false
     }
   };
-  if (orderComplete === '') {
+  if (orderComplete.getId() === '') {
     api.createOrder(data)
       .then((data) => {
-        orderComplete = data.order._id;
-        return stripe.onCreateCharge(event, data.order);
+        orderComplete.setId(data.order._id);
+        stripe.onCreateCharge(event, data.order);
       })
       .catch(console.error);
   } else {
-    api.updateOrder(orderComplete, data)
+    api.updateOrder(orderComplete.getId(), data)
       .then((data) => {
         return stripe.onCreateCharge(event, data.order);
       })

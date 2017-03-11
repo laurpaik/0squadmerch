@@ -4,6 +4,7 @@ const api = require('./api');
 const orderAPI = require('../orders/api.js');
 const cart = require('../cart');
 const ordersUi = require('../orders/ui');
+let orderComplete = require('../ordercomplete');
 
 const onCreateCharge = function (event, order) {
   event.preventDefault();
@@ -25,6 +26,7 @@ const onCreateCharge = function (event, order) {
           };
           orderAPI.updateOrder(order._id, data);
           ordersUi.clearCart();
+          orderComplete.setId('');
         })
         .catch();
     }
