@@ -1,6 +1,6 @@
 'use strict';
 const hbs = require('../templates/products.handlebars');
-const hbsProduct = require('../templates/showProduct.handlebars')
+const hbsProduct = require('../templates/showProduct.handlebars');
 
 const getProductsSuccess = (data) => {
   let productsTemplate = hbs({ products: data.products });

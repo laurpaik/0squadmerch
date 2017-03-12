@@ -14,7 +14,7 @@
       <td>{{item.name}}</td>
       <td>{{item.description}}</td>
       <td>{{item.price}}</td>
-      <td><select class="selectedItem">
+      <td><select id="{{item._id}}">
         <option {{item-value 1 item.quantity}} value="1">1</option>
         <option {{item-value 2 item.quantity}} value="2">2</option>
         <option {{item-value 3 item.quantity}} value="3">3</option>

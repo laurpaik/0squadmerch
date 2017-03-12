@@ -69,7 +69,9 @@ const removeFromCart = function (event) {
 
 const updateCart = function (event) {
   let id = event.target.dataset.id;
-  let i = $('.selectedItem').val();
+  console.log(id);
+  let i = $('#' + id).val();
+  console.log(i);
   let currentProduct = cart.find(function(item) {
     if(item._id === id) {
       return item;
