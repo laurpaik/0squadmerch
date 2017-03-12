@@ -5,7 +5,7 @@ const cart = require('../cart');
 const orderTemplate = require('../templates/orderhistory.handlebars');
 
 const clearCart = function () {
-  for (let i = 0; i < cart.length; i++) {
+  for (let i = 0; i < cart.items.length; i++) {
     cart.items.pop();
   }
   cart.items.pop();
