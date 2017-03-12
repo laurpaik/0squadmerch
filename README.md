@@ -3,7 +3,7 @@
 # 0Squad Merch
 An E-Commerce app that allows users to purchase our squad's merchandise.
 
-- [Visit our website!](0squad.github.io/0squadmerch)
+- [Visit our website!](https://0squad.github.io/0squadmerch/)
 - [Back-end Repo](https://github.com/0Squad/0squadmerch-api)
 - [Link to wireframes](https://goo.gl/photos/si3vrGCq6B87UXFg8)
 - [ERD](https://goo.gl/photos/BaErscbjzTdedkC69)
