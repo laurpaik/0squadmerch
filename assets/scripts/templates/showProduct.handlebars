@@ -6,22 +6,23 @@
       <li><input class="description hide" name="item[description]" type="text" value="{{product.description}}" readonly ></li>
       <li><input class="id hide" name="item[_id]" type="text" value="{{product.id}}" readonly></li>
     </ul>
-      <img src="{{product.img}}" alt="picture" style="width:300px;height:300px;">
-      <h3> {{product.name}} </h3>
-      <p> {{product.description}} </p>
+    <img src="{{product.img}}" alt="picture" style="width:300px;height:300px;">
+    <h3> {{product.name}}</h3>
+    <h4> ${{product.price}}.00 </h4>
+    <h5> {{product.description}} </h5>
 
-      <select class="quantity" name="item[quantity]">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <button type="submit" class="add-to-cart">Add To Cart</button></li>
+    <select class="quantity" name="item[quantity]">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <button class="button button--wapasha button--text-thick button--text-upper button--size-s add-to-cart">Add to Cart</button>
   </form>
 </div>

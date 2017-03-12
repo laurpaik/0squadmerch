@@ -18,10 +18,10 @@
         {{item.name}},
       {{/each}}
       </td>
-      <td>${{order.orderPrice}}</td>
+      <td>${{order.orderPrice}}.00</td>
       <td>{{order.complete}}</td>
       <td>
-        <button class="btn btn-danger delete-order" data-id="{{order._id}}">Delete</button>
+        <button class="btn btn-danger delete-order glyphicon glyphicon-trash" data-id="{{order._id}}"></button>
       </td>
     </tr>
     {{/each}}

@@ -5,6 +5,7 @@
       <th>Description</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>Delete/Update</th>
     </tr>
   </thead>
 
@@ -26,11 +27,11 @@
         <option {{item-value 9 item.quantity}} value="9">9</option>
         <option {{item-value 10 item.quantity}} value="10">10</option></select></td>
       <td>
-        <button class="btn btn-danger item-delete" data-id="{{item._id}}">Delete</button>
-        <button class="btn btn-primary item-edit" data-id="{{item._id}}" >Update Quantity</button>
+        <button class="btn btn-danger item-delete glyphicon glyphicon-trash" data-id="{{item._id}}"></button>
+        <button class="btn btn-success item-edit glyphicon glyphicon-pencil" data-id="{{item._id}}" ></button>
       </td>
     </tr>
     {{/each}}
   </tbody>
 </table>
-<h5>Total is: {{total}}</h5>
+<h5>Total is: ${{total}}.00</h5>

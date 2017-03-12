@@ -1,7 +1,7 @@
 {{#each products as |product|}}
-<div class="productWindow">
+<div class="productWindow hover12 column">
   <ul class="products">
-    <li><img src="{{product.img}}" alt="picture" style="width:200px;height:200px;" class="show-product" data-id={{product._id}} onclick="" data-toggle="modal" data-target="#myProductModal"></li>
+    <li><figure><img src="{{product.img}}" alt="picture" style="width:200px;height:200px;" class="show-product" data-id={{product._id}} onclick="" data-toggle="modal" data-target="#myProductModal"></figure></li>
     <li>{{product.name}}</li>
     <li>${{product.price}}.00</li>
   </ul>
