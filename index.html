@@ -67,6 +67,7 @@
               </form>
               <button id="sign-out" class="btn btn-danger">Sign Out</button>
 
+
             <!-- </div> -->
           </ul>
         </div>
@@ -77,7 +78,6 @@
 
       <div class="jumbotron">
         <h1 class="display-3">Welcome to 0 Squad Merch!</h1>
-        <hr class="my-4">
         <p>Where the products are made up and the payments don't matter! Please Sign in to get access to our exculsive products!</p>
       </div>
 
@@ -97,14 +97,14 @@
           </div>
         </div>
       </div>
+        <!-- Button trigger modal -->
+        <button id="get-orders" type="button" class="btn btn-primary btn-lg top" data-toggle="modal" data-target="#myPastOrderModal">
+          Show Order History
+        </button>
+
       <!-- Button trigger modal -->
-      <button id="get-orders" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myPastOrderModal">
-        Show Order History
-      </button>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg cart-btn" data-toggle="modal" data-target="#myCartModal">
-        See My Cart!
-      </button>
+        <button type="button" class="btn btn-info btn-lg cart-btn glyphicon glyphicon-shopping-cart top" data-toggle="modal" data-target="#myCartModal">
+        </button>
             <!-- Modal -->
       <div class="modal fade" id="myCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
