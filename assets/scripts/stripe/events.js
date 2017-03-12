@@ -27,6 +27,9 @@ const onCreateCharge = function (event, order) {
           orderAPI.updateOrder(order._id, data);
           ordersUi.clearCart();
           orderComplete.setId('');
+          $('.alert-message').text( "Thanks for your order!");
+          $('.alert-success').slideDown();
+          $('.alert-success').delay(2000).slideUp();
         })
         .catch();
     }
