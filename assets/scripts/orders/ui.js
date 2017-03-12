@@ -6,9 +6,9 @@ const orderTemplate = require('../templates/orderhistory.handlebars');
 
 const clearCart = function () {
   for (let i = 0; i < cart.length; i++) {
-    cart.pop();
+    cart.items.pop();
   }
-  cart.pop();
+  cart.items.pop();
   $('.order-table').detach();
   $('#myCartModal').modal('hide');
 };
@@ -21,9 +21,9 @@ const isCartEmpty = (data) => {
 };
 
 const showOrderSuccess = (data, total) => {
-  if (cart.length > 0) {
+  if (cart.items.length > 0) {
     $('#checkout-btn').show();
-    let cartTemplate = hbsCart({ items: cart, total: total });
+    let cartTemplate = hbsCart({ items: cart.items, total: total });
     $('.cart-modal').html(cartTemplate);
   } else {
     $('.cart-modal').html('Empty cart!');

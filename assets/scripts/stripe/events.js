@@ -20,7 +20,7 @@ const onCreateCharge = function (event, order) {
         .then(() => {
           let data = {
             order: {
-              items: cart,
+              items: cart.getItems(),
               complete: true
             }
           };
@@ -34,7 +34,7 @@ const onCreateCharge = function (event, order) {
   handler.open({
     name: '0Squad Merch',
     description: 'Cart',
-    amount: order.orderPrice * 100
+    amount: cart.getTotal() * 100,
   });
 };
 

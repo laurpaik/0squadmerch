@@ -13,20 +13,16 @@ const onGetOrders = function (event) {
     .catch(ui.failure);
 };
 
-const onShowOrder = function (event) {
-  event.preventDefault();
-  let total = 0;
-  for(let i = 0; i < cart.length; i++) {
-    total += (cart[i].price * cart[i].quantity);
-  }
-  ui.showOrderSuccess(cart, total);
+const onShowOrder = function () {
+  let total = cart.getTotal();
+  ui.showOrderSuccess(cart.items, total);
 };
 
 const onCreateOrder = function (event) {
   event.preventDefault();
   let data = {
     order: {
-      items: cart,
+      items: cart.getItems(),
       complete: false
     }
   };
@@ -40,7 +36,8 @@ const onCreateOrder = function (event) {
   } else {
     api.updateOrder(orderComplete.getId(), data)
       .then((data) => {
-        return stripe.onCreateCharge(event, data.order);
+        onShowOrder();
+        stripe.onCreateCharge(event, data.order);
       })
       .catch(ui.failure);
   }

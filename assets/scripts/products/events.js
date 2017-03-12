@@ -9,13 +9,6 @@ const orderEvents = require('../orders/events');
 
 const cart = require('../cart');
 
-// const onGetProducts = function (event) {
-//   event.preventDefault();
-//   api.getProducts()
-//     .then(ui.getProductsSuccess)
-//     .catch(ui.getProductsFailure);
-// };
-
 const onShowProduct = function (event) {
   event.preventDefault();
   let id = event.target.dataset.id;
@@ -33,23 +26,23 @@ const onPageLoad = function () {
 const addToCart = function (event){
   event.preventDefault();
   let i = getFormFields(event.target);
-    let currentProduct = cart.find(function(item) {
+    let currentProduct = cart.items.find(function(item) {
       if(item._id === i.item._id) {
         return item;
       }
     });
     if (currentProduct !== undefined) {
-      let currProdIndex = cart.indexOf(currentProduct);
-      if(cart[currProdIndex].quantity + parseInt(i.item.quantity) < 10) {
-        cart[currProdIndex].quantity += parseInt(i.item.quantity);
+      let currProdIndex = cart.items.indexOf(currentProduct);
+      if(cart.items[currProdIndex].quantity + parseInt(i.item.quantity) < 10) {
+        cart.items[currProdIndex].quantity += parseInt(i.item.quantity);
         ui.addToCartSuccess();
       } else {
-        cart[currProdIndex].quantity = 10;
+        cart.items[currProdIndex].quantity = 10;
         ui.maxItemSuccess();
       }
     } else {
       i.item.quantity = parseInt(i.item.quantity);
-      cart.push(i.item);
+      cart.items.push(i.item);
       ui.addToCartSuccess();
     }
 };
@@ -57,29 +50,28 @@ const addToCart = function (event){
 const removeFromCart = function (event) {
   event.preventDefault();
   let id = event.target.dataset.id;
-  let delObj = cart.find((item) => {
+  let delObj = cart.items.find((item) => {
       if(item._id === id) {
         return item;
       }
     });
-  let delObjInd = cart.indexOf(delObj);
-  cart.splice(delObjInd, 1);
-  orderEvents.onShowOrder(event);
+  let delObjInd = cart.items.indexOf(delObj);
+  cart.items.splice(delObjInd, 1);
+  orderEvents.onShowOrder();
 };
 
 const updateCart = function (event) {
   let id = event.target.dataset.id;
-  console.log(id);
   let i = $('#' + id).val();
-  console.log(i);
-  let currentProduct = cart.find(function(item) {
+  let currentProduct = cart.items.find(function(item) {
     if(item._id === id) {
       return item;
     }
   });
-    let currProdIndex = cart.indexOf(currentProduct);
-    cart[currProdIndex].quantity = parseInt(i);
-    orderEvents.onShowOrder(event);
+  let currProdIndex = cart.items.indexOf(currentProduct);
+
+  cart.items[currProdIndex].quantity = parseInt(i);
+  orderEvents.onShowOrder();
 };
 
 
