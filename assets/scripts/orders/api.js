@@ -13,13 +13,6 @@ const getOrders = function (){
   });
 };
 
-const showOrder = function (id){
-  return $.ajax({
-    url: config.apiOrigin + '/orders/' + id,
-    method: 'GET'
-  });
-};
-
 const updateOrder = function (id, data){
   return $.ajax({
     url: config.apiOrigin + '/orders/' + id,
@@ -52,10 +45,8 @@ const destroyOrder = function (id) {
   });
 };
 
-
 module.exports = {
   getOrders,
-  showOrder,
   updateOrder,
   createOrder,
   destroyOrder,

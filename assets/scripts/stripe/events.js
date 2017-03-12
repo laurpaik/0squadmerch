@@ -38,7 +38,6 @@ const onCreateCharge = function (event, order) {
   });
 };
 
-
 module.exports = {
   onCreateCharge,
 };
