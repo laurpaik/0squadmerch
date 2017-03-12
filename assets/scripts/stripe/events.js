@@ -31,7 +31,11 @@ const onCreateCharge = function (event, order) {
           $('.alert-success').slideDown();
           $('.alert-success').delay(2000).slideUp();
         })
-        .catch();
+        .catch(() => {
+          $('.danger-alert-message').text( "Error processing your order!");
+          $('.alert-danger').slideDown();
+          $('.alert-danger').delay(2000).slideUp();
+        });
     }
   });
   handler.open({
