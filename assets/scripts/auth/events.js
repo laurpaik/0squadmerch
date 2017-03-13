@@ -8,9 +8,14 @@ const ui = require('./ui');
 const onSignUp = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure);
+  console.log(data);
+  if(data.credentials.password === data.credentials.password_confirmation) {
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .catch(ui.signUpFailure);
+  } else {
+    ui.passwordsDontMatch();
+  }
 };
 
 const onSignIn = function (event) {

@@ -44,6 +44,12 @@ const signUpFailure = (err) => {
   }
 };
 
+const passwordsDontMatch = function () {
+  $('.danger-alert-message').text("Passwords don't match!");
+  $('.alert-danger').slideDown();
+  $('.alert-danger').delay(2000).slideUp();
+};
+
 const signUpSuccess = () => {
   $("#sign-up")[0].reset();
   $('.alert-message').text("Thanks for signing up! Please sign in!");
@@ -126,6 +132,7 @@ const passwordChangeSuccess = () => {
 module.exports = {
   signUpSuccess,
   signUpFailure,
+  passwordsDontMatch,
   signInSuccess,
   signInFailure,
   passwordChangeFailure,
