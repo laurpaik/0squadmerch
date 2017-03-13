@@ -21,6 +21,7 @@ Install with `npm install`.
 
 1.  Fork and clone this repository.
 1.  Install dependencies with `npm install`.
+1.  Run the front-end server with `grunt serve`.
 
 ## Approach and team process
 
