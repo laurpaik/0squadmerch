@@ -52,6 +52,11 @@ We edited our cart to be an object with item properties instead of simply an emp
 Our front-end saves a user's cart locally, so the order does not actually get created until the user decides to check out. When this happens, our app sends a *POST* request using the stored items in the local cart as our items array, with a completed status as `false`. The `onCreateOrder` function actually checks for an id before posting, so if an id exists in the cart, it will send a *PATCH* request instead of a *POST* request.
 When a user decides to pay, our `onCreateCharge` function sends a *POST* request for the charge token. Once the order has been successfully paid, our app sends a *PATCH* request updating the order's completed status as `true`. It also clears the cart and resets the cart's order id back to an empty string, so it will never create a charge on a completed and already-paid-for order.
 
+## Notes on Stripe
+
+For testing, Stripe provided a fake credit card.
+`4242 4242 4242 4242` works with any future expiration date and CVC.
+
 ## Future goals
 
 We would like to be able to see products and add to cart before signing in. If a user tries to purchase an item before signing in, the app would make them create an account/sign in. We also defined some reach goals in our user stories.
