@@ -77,6 +77,7 @@ const signInSuccess = (resp) => {
 const signOutSuccess = () => {
   $('#sign-up').show();
   $('.products-container').hide();
+  $("#sign-up")[0].reset();
   $('#show-form').hide();
   ordersUI.clearCart();
   orderComplete.setId('');
@@ -88,6 +89,7 @@ const signOutSuccess = () => {
 
 const signOutFailure = () => {
   $('#sign-up').show();
+  $("#sign-up")[0].reset();
   $('.products-container').hide();
   $('#show-form').hide();
   $('.cart-btn').hide();
