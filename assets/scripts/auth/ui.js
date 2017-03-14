@@ -62,6 +62,7 @@ const signInSuccess = (resp) => {
   store.user = resp.user;
   window.localStorage.setItem('user', JSON.stringify(resp.user));
   loggedInSuccess();
+  $("#sign-up")[0].reset();
   $('#sign-up').hide();
   $('.products-container').show();
   $('#show-form').show();
@@ -128,6 +129,11 @@ const passwordChangeSuccess = () => {
   $('.alert-success').delay(2000).slideUp();
 };
 
+const formNotFilled = function () {
+  $('.danger-alert-message').text("Please enter a new password");
+  $('.alert-danger').slideDown();
+  $('.alert-danger').delay(2000).slideUp();
+};
 
 module.exports = {
   signUpSuccess,
@@ -140,5 +146,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   loggedInSuccess,
-  checkForUser
+  checkForUser,
+  formNotFilled,
 };

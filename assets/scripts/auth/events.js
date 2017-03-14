@@ -29,9 +29,14 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   let data = getFormFields(event.target);
   event.preventDefault();
-  api.changePassword(data)
-    .then(ui.passwordChangeSuccess)
-    .catch(ui.passwordChangeFailure);
+  if ($('#changepw').val() !== '') {
+    api.changePassword(data)
+      .then(ui.passwordChangeSuccess)
+      .catch(ui.passwordChangeFailure);
+  }
+  else {
+    ui.formNotFilled();
+  }
 };
 
 const onSignOut = function (event) {
