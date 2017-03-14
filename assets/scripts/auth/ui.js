@@ -45,7 +45,7 @@ const signUpFailure = (err) => {
 };
 
 const passwordsDontMatch = function () {
-  $('.danger-alert-message').text("Passwords don't match!");
+  $('.danger-alert-message').text("Your passwords don't match!");
   $('.alert-danger').slideDown();
   $('.alert-danger').delay(2000).slideUp();
 };
@@ -77,6 +77,7 @@ const signInSuccess = (resp) => {
 const signOutSuccess = () => {
   $('#sign-up').show();
   $('.products-container').hide();
+  $("#change-password")[0].reset();
   $("#sign-up")[0].reset();
   $('#show-form').hide();
   ordersUI.clearCart();
@@ -90,6 +91,7 @@ const signOutSuccess = () => {
 const signOutFailure = () => {
   $('#sign-up').show();
   $("#sign-up")[0].reset();
+  $("#change-password")[0].reset();
   $('.products-container').hide();
   $('#show-form').hide();
   $('.cart-btn').hide();
